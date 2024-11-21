@@ -6,19 +6,48 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     public Transform player;
-    private NavMeshAgent navMeshAgent;
-    // Start is called before the first frame update
+    [SerializeField]
+    private float minDetectDistance;
+    [SerializeField]
+    private float maxChaseDistance;
+    [SerializeField]
+    private float growProbability;
+    private EnemyStateMachineController _stateMachine;
+    private float stateTimer = 0f;
+    private System.Random random = new System.Random();
+
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        _stateMachine = GetComponent<EnemyStateMachineController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(player!=null)
+        stateTimer += Time.deltaTime;
+
+        // If state duration has elapsed, decide next state
+        if (stateTimer >= 10f)
         {
-            navMeshAgent.SetDestination(player.position);
-        }        
+            CheckProbability();
+            stateTimer = 0f;
+        }
+
+        if (Vector3.Distance(transform.position, player.position) < minDetectDistance)
+        {
+            _stateMachine.ChangeToChase();
+        }
+
+        if (Vector3.Distance(transform.position, player.position) > maxChaseDistance)
+        {
+            _stateMachine.ChangeToPatrol();
+        }
+    }
+
+    void CheckProbability(){
+        float roll = (float)random.NextDouble();
+        if (roll < growProbability)
+        {
+            _stateMachine.ChangeToBig();
+        }
     }
 }

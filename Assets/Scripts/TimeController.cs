@@ -13,8 +13,8 @@ public class TimeController : MonoBehaviour
     [SerializeField]
     private float startHour;
 
-    [SerializeField]
-    private TextMeshProUGUI timeText;
+    // [SerializeField]
+    // private TextMeshProUGUI timeText;
 
     [SerializeField]
     private Light sunLight;
@@ -69,10 +69,10 @@ public class TimeController : MonoBehaviour
     private void UpdateTimeOfDay()
     {
         currentTime = currentTime.AddSeconds(Time.deltaTime * timeMultiplier);
-        if (timeText != null)
-        {
-            timeText.text = currentTime.ToString("HH:mm");
-        }
+        // if (timeText != null)
+        // {
+        //     timeText.text = currentTime.ToString("HH:mm");
+        // }
     }
 
     private void RotateSun()

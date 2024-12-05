@@ -10,7 +10,7 @@ public class JyEnemy : MonoBehaviour
     private int scaleMulti = 2;
     private Vector3 scale;
     [SerializeField]
-    private float detectionRadius = 10f;
+    private float detectionRadius = 15f;
     private Transform player;
     private NavMeshAgent agent;
     [SerializeField]
@@ -18,7 +18,7 @@ public class JyEnemy : MonoBehaviour
     [SerializeField]
     private Material chasingColour;
     [SerializeField]
-    private float patrolTimer = 10f;
+    private float patrolTimer = 5f;
     private float currentTimer = 0f;
     [SerializeField]
     private float growTimer = 0f;

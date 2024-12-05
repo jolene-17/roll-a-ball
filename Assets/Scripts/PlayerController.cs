@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI warningText;
     public GameObject winTextObject;
+    public GameObject respawnCanvas;
     public static int count;
 
     private float jumpdebugtimer = 0f;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         SetWarningText();
         winTextObject.SetActive(false);
+        respawnCanvas.SetActive(false);
 
         rb.freezeRotation = true; //cam
         readyToJump = true; //jumping
@@ -181,9 +183,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             winTextObject.SetActive(true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+                
+            respawnCanvas.SetActive(true);
+            Debug.Log("Respawn canvas active");
         }
     }
 

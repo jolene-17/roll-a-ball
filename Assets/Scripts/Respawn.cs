@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Menu : MonoBehaviour
+public class Respawn : MonoBehaviour
 {
-    public void OnPlayButton ()
+    public void LoadMainMenu()
     {
-        Debug.Log("Enter button pressed");        
-        SceneManager.LoadScene(1);
+        Debug.Log("Respawn button pressed");
+        SceneManager.LoadScene(0);
+        Debug.Log("Respawn button triggered");
+
     }
 
     public void OnQuitButton ()

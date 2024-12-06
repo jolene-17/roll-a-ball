@@ -14,13 +14,13 @@ public class JyEnemyScriptRanged : MonoBehaviour
     [SerializeField]
     private Material chasingColour;
     [SerializeField]
-    private float patrolTimer = 10f;
+    private float patrolTimer = 6f;
     private float currentTimer = 0f;
 
     [Header("Bullet Settings")]
     public GameObject bulletPrefab; // Drag your bullet prefab here
     public Transform firePoint;     // Where bullets are fired from
-    public float bulletSpeed = 10f;
+    public float bulletSpeed = 20f;
     public float bulletLifetime = 5f; // Max time bullet exists if it doesn't hit
     public float firingInterval = 3f;
 

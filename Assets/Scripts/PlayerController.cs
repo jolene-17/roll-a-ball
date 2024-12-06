@@ -4,6 +4,7 @@ using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     [Header("Rest of the stuff")]
 
     private Rigidbody rb; 
+    bool playerWin;
 
     [Header("Physics Materials")]
     [SerializeField] private PhysicMaterial bouncyMaterial;
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
         SetWarningText();
         winTextObject.SetActive(false);
         respawnCanvas.SetActive(false);
+        playerWin = false;
 
         rb.freezeRotation = true; //cam
         readyToJump = true; //jumping
@@ -144,7 +147,10 @@ public class PlayerController : MonoBehaviour
 
     void SetWarningText()
     {
-        warningText.text = "Beware! You could get sucked into a singularity if you venture too far!";
+        if (SceneManager.GetActiveScene().name == "level 2")
+        {
+            warningText.text = "Beware! You could get sucked into a singularity if you venture too far!";
+        }        
     }
     void SetCountText()
     {
@@ -153,6 +159,20 @@ public class PlayerController : MonoBehaviour
         {
             winTextObject.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            playerWin = true;
+            SetGameEndMenu();
+            Debug.Log("game end screen");
+        }
+    }
+
+    void SetGameEndMenu()
+    {
+        if (playerWin && SceneManager.GetActiveScene().name == "level 2")
+        {            
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Debug.Log("game ended");
+            respawnCanvas.SetActive(true);
         }
     }
     

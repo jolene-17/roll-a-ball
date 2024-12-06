@@ -10,7 +10,7 @@ public class JyEnemy : MonoBehaviour
     private int scaleMulti = 2;
     private Vector3 scale;
     [SerializeField]
-    private float detectionRadius = 15f;
+    private float detectionRadius = 30f;
     private Transform player;
     private NavMeshAgent agent;
     [SerializeField]
@@ -78,12 +78,13 @@ public class JyEnemy : MonoBehaviour
         if(growTimer >= timeUntilThisGuyGrowsBig)
         {
             int chanceThisGuyGrowsBig = Random.Range(0,9);
-            if(chanceThisGuyGrowsBig <= 2 )
+            if(chanceThisGuyGrowsBig <= 1 )
             {   
                 agent.speed -= 0.5f;
                 scale = new Vector3(0.5f*scaleMulti,1*scaleMulti,0.5f*scaleMulti);
                 transform.localScale = scale;
                 scaleMulti *= 2;
+                detectionRadius += 10f;
                 Debug.Log("Fella grew by" + scaleMulti);
             }
         }

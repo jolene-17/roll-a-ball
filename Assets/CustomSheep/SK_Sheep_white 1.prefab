@@ -2524,6 +2524,8 @@ GameObject:
   - component: {fileID: 6517686061769116561}
   - component: {fileID: 4006239668561567826}
   - component: {fileID: 5915525405040766796}
+  - component: {fileID: 1980084690443380857}
+  - component: {fileID: 3927599610555440050}
   m_Layer: 0
   m_Name: SK_Sheep_white 1
   m_TagString: Untagged
@@ -2608,6 +2610,50 @@ MonoBehaviour:
   moveSpeed: 1
   walkCounter: 0
   waitCounter: 0
+--- !u!65 &1980084690443380857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517686061769116559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.54748535, y: 1.108736, z: 1.09549}
+  m_Center: {x: 0.0043029785, y: 0.794368, z: 0.04774499}
+--- !u!136 &3927599610555440050
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517686061769116559}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.23508549
+  m_Height: 0.7615558
+  m_Direction: 1
+  m_Center: {x: -0.011790276, y: 1.03, z: 0.77}
 --- !u!1 &6517686061794323453
 GameObject:
   m_ObjectHideFlags: 0
